@@ -10,7 +10,7 @@ import {
 } from "./InformationPage.api";
 import { LoadingState } from "../features/ui/LoadingState";
 import { ErrorState } from "../features/ui/ErrorState";
-import { DynamicContentRenderer } from "../features/dynamic-content/DynamicContentRenderer";
+import { DynamicContentRenderer } from "./dynamic-content/DynamicContentRenderer";
 
 const InformationPage: React.FC<InformationPageProps> = ({
   pageId,
