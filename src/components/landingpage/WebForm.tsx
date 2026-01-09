@@ -115,20 +115,23 @@ const WebForm: React.FC<WebFormProps> = ({ isOpen, onClose, data }) => {
 
     setIsSubmitting(true);
     try {
-      const submission_data = data.form.fields.map(field => ({
+      const submission_data = data.form.fields.map((field) => ({
         field_id: field.id,
         label: field.label,
-        value: formData[field.id] ?? ""
+        value: formData[field.id] ?? "",
       }));
 
-      const response = await fetch("https://esign-admin.signmary.com/blogs/api/v2/submit-form/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Frontend-Url": "https://notarywealthbuilder.com",
-        },
-        body: JSON.stringify({ form_id: data.form.id, submission_data }),
-      });
+      const response = await fetch(
+        "https://esign-admin.signmary.com/blogs/api/v2/submit-form/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-Frontend-Url": "https://1099-partner.com",
+          },
+          body: JSON.stringify({ form_id: data.form.id, submission_data }),
+        }
+      );
 
       if (response.ok) {
         setShowSuccess(true);
@@ -180,14 +183,26 @@ const WebForm: React.FC<WebFormProps> = ({ isOpen, onClose, data }) => {
                 onClick={() => setShowCountryDropdown(!showCountryDropdown)}
                 className="flex items-center gap-1 px-2 py-2 hover:bg-gray-50 rounded"
               >
-                <img 
-                  src={`https://flagcdn.com/16x12/${countries.find(c => c.code === countryCode)?.flag.toLowerCase()}.png`}
+                <img
+                  src={`https://flagcdn.com/16x12/${countries
+                    .find((c) => c.code === countryCode)
+                    ?.flag.toLowerCase()}.png`}
                   alt=""
                   className="w-4 h-3"
                 />
                 <span className="text-sm">{countryCode}</span>
-                <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <svg
+                  className="w-4 h-4 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </button>
               {showCountryDropdown && (
@@ -202,12 +217,14 @@ const WebForm: React.FC<WebFormProps> = ({ isOpen, onClose, data }) => {
                       }}
                       className="w-full flex items-center gap-2 px-3 py-2 hover:bg-gray-100 text-left"
                     >
-                      <img 
+                      <img
                         src={`https://flagcdn.com/16x12/${c.flag.toLowerCase()}.png`}
                         alt=""
                         className="w-4 h-3"
                       />
-                      <span className="text-sm">{c.name} {c.code}</span>
+                      <span className="text-sm">
+                        {c.name} {c.code}
+                      </span>
                     </button>
                   ))}
                 </div>
@@ -238,7 +255,10 @@ const WebForm: React.FC<WebFormProps> = ({ isOpen, onClose, data }) => {
         return (
           <div className="space-y-2">
             {cleanChoices.map((choice, idx) => (
-              <label key={idx} className="flex items-center gap-3 cursor-pointer group py-1">
+              <label
+                key={idx}
+                className="flex items-center gap-3 cursor-pointer group py-1"
+              >
                 <div className="relative">
                   <input
                     type="radio"
@@ -260,7 +280,10 @@ const WebForm: React.FC<WebFormProps> = ({ isOpen, onClose, data }) => {
           <div className="space-y-2">
             {cleanChoices.length > 0 ? (
               cleanChoices.map((choice, idx) => (
-                <label key={idx} className="flex items-start gap-3 cursor-pointer py-1">
+                <label
+                  key={idx}
+                  className="flex items-start gap-3 cursor-pointer py-1"
+                >
                   <input
                     type="checkbox"
                     checked={(formData[field.id] || []).includes(choice)}
@@ -351,7 +374,9 @@ const WebForm: React.FC<WebFormProps> = ({ isOpen, onClose, data }) => {
                     {data.form.form_title}
                   </h2>
                   {data.form.form_description && (
-                    <p className="text-purple-100 text-sm">{data.form.form_description}</p>
+                    <p className="text-purple-100 text-sm">
+                      {data.form.form_description}
+                    </p>
                   )}
                 </div>
 
@@ -359,13 +384,18 @@ const WebForm: React.FC<WebFormProps> = ({ isOpen, onClose, data }) => {
                   {data.form.fields
                     .sort((a, b) => a.order - b.order)
                     .map((field) => (
-                      <div key={field.id} className="bg-white border border-gray-300 rounded-lg p-6 hover:border-gray-400 transition-colors">
+                      <div
+                        key={field.id}
+                        className="bg-white border border-gray-300 rounded-lg p-6 hover:border-gray-400 transition-colors"
+                      >
                         <label className="block text-sm font-normal text-gray-700 mb-4">
                           {field.label}
                         </label>
                         {renderField(field)}
                         {errors[field.id] && (
-                          <p className="text-xs text-red-600 mt-2">{errors[field.id]}</p>
+                          <p className="text-xs text-red-600 mt-2">
+                            {errors[field.id]}
+                          </p>
                         )}
                       </div>
                     ))}

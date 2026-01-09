@@ -50,7 +50,7 @@ jobs:
 
       - name: Deploy to Apache Server
         run: |
-          scp -i ~/.ssh/id_ed25519 -r dist/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/notary
+          scp -i ~/.ssh/id_ed25519 -r dist/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/wp-1099
 
       - name: Restart Apache
         run: |

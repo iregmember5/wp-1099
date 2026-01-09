@@ -19,7 +19,7 @@ export interface FeaturesPageApiResponse {
 const isDevelopment = import.meta.env.DEV;
 const frontendUrl = isDevelopment
   ? "http://localhost:5173"
-  : "https://notarywealthbuilder.com";
+  : "https://1099-partner.com";
 
 const baseApiUrl = isDevelopment
   ? "/blogs/api/v2"

@@ -61,7 +61,7 @@ const DebugFeaturesAPI = () => {
         const isDevelopment = import.meta.env.DEV;
         const frontendUrl = isDevelopment
           ? "http://localhost:5173"
-          : "https://mypowerly.vercel.app";
+          : "https://1099-partner.com";
 
         const baseApiUrl = isDevelopment
           ? "/blogs/api/v2"

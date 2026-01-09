@@ -430,7 +430,7 @@ export interface FeaturesPageApiResponse {
 const isDevelopment = import.meta.env.DEV;
 const frontendUrl = isDevelopment
   ? "http://localhost:5173"
-  : "https://notarywealthbuilder.com";
+  : "https://1099-partner.com";
 
 const baseApiUrl = isDevelopment
   ? "/blogs/api/v2"
@@ -533,11 +533,11 @@ export const fetchFeaturesPageById = async (
 };
 
 // ===== About Page API =====
-import type { AboutPageData, AboutPageApiResponse } from './about';
+import type { AboutPageData, AboutPageApiResponse } from "./about";
 
 export const fetchAboutPage = async (slug?: string): Promise<AboutPageData> => {
   try {
-    const apiUrl = slug 
+    const apiUrl = slug
       ? `${baseApiUrl}/about-pages/?slug=${slug}`
       : `${baseApiUrl}/about-pages/`;
 
@@ -562,11 +562,14 @@ export const fetchAboutPage = async (slug?: string): Promise<AboutPageData> => {
     }
 
     const pageData = data.items[0];
-    
+
     // Parse StructValue strings to objects
     if (pageData.values) {
       pageData.values = pageData.values.map((item: any) => {
-        if (typeof item.value === 'string' && item.value.startsWith('StructValue')) {
+        if (
+          typeof item.value === "string" &&
+          item.value.startsWith("StructValue")
+        ) {
           const match = item.value.match(/{(.+)}/);
           if (match) {
             const parsed: any = {};
@@ -575,8 +578,8 @@ export const fetchAboutPage = async (slug?: string): Promise<AboutPageData> => {
             if (pairs) {
               pairs.forEach((pair: string) => {
                 const [key, val] = pair.split(/:\s*/);
-                const cleanKey = key.replace(/'/g, '');
-                const cleanVal = val.replace(/'/g, '');
+                const cleanKey = key.replace(/'/g, "");
+                const cleanVal = val.replace(/'/g, "");
                 parsed[cleanKey] = cleanVal;
               });
             }
@@ -586,29 +589,36 @@ export const fetchAboutPage = async (slug?: string): Promise<AboutPageData> => {
         return item;
       });
     }
-    
+
     // Parse history_milestones
     if (pageData.history_milestones) {
-      pageData.history_milestones = pageData.history_milestones.map((item: any) => {
-        if (typeof item.value === 'string' && item.value.startsWith('StructValue')) {
-          const match = item.value.match(/{(.+)}/);
-          if (match) {
-            const parsed: any = {};
-            const content = match[1];
-            const pairs = content.match(/'(\w+)':\s*'([^']*)'/g);
-            if (pairs) {
-              pairs.forEach((pair: string) => {
-                const [key, val] = pair.split(/:\s*/);
-                const cleanKey = key.replace(/'/g, '');
-                const cleanVal = val.replace(/'/g, '').replace(/\\r\\n/g, '\n');
-                parsed[cleanKey] = cleanVal;
-              });
+      pageData.history_milestones = pageData.history_milestones.map(
+        (item: any) => {
+          if (
+            typeof item.value === "string" &&
+            item.value.startsWith("StructValue")
+          ) {
+            const match = item.value.match(/{(.+)}/);
+            if (match) {
+              const parsed: any = {};
+              const content = match[1];
+              const pairs = content.match(/'(\w+)':\s*'([^']*)'/g);
+              if (pairs) {
+                pairs.forEach((pair: string) => {
+                  const [key, val] = pair.split(/:\s*/);
+                  const cleanKey = key.replace(/'/g, "");
+                  const cleanVal = val
+                    .replace(/'/g, "")
+                    .replace(/\\r\\n/g, "\n");
+                  parsed[cleanKey] = cleanVal;
+                });
+              }
+              return { ...item, value: parsed };
             }
-            return { ...item, value: parsed };
           }
+          return item;
         }
-        return item;
-      });
+      );
     }
 
     return pageData;
