@@ -20,6 +20,7 @@ const Maverick = lazy(() => import("./components/salespage/Maverick"));
 const ImageGallery = lazy(() => import("./components/gallery/ImageGallery"));
 const AffiliateDashboard = lazy(() => import("./components/landingpage/AffiliateDashboard"));
 const TeamPage = lazy(() => import("./components/teams/TeamPage"));
+const InformationPage = lazy(() => import("./components/information-page/InformationPage"));
 
 // Loading component
 const PageLoader = () => (
@@ -58,7 +59,8 @@ function AppContent() {
       | "salespage"
       | "gallery"
       | "affiliate"
-      | "team";
+      | "team"
+      | "demo-websites";
     slug?: string;
   }>({ type: "landing" });
 
@@ -138,6 +140,11 @@ function AppContent() {
         return;
       }
 
+      if (path.includes("/demo-websites") || hash.includes("#demo-websites")) {
+        setCurrentView({ type: "demo-websites" });
+        return;
+      }
+
       if (path.includes("/features/") || hash.includes("#features/")) {
         const slugMatch =
           path.match(/\/features\/([^\/]+)/) ||
@@ -180,6 +187,7 @@ function AppContent() {
         {currentView.type === "gallery" && <ImageGallery />}
         {currentView.type === "affiliate" && <AffiliateDashboard />}
         {currentView.type === "team" && <TeamPage />}
+        {currentView.type === "demo-websites" && <InformationPage slug="demo-websites" />}
         {currentView.type === "landing" && <LandingPage />}
       </ThemeProvider>
     </Suspense>
