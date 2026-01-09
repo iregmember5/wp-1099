@@ -88,6 +88,9 @@ function GlassNavbar({ data, onShowLogin }: GlassNavbarProps) {
     if (lower.includes('why our website builder') || lower.includes('why website builder')) {
       return '#about/why-our-website-builder';
     }
+    if (lower.includes('demo website') || lower.includes('demo-website')) {
+      return '#demo-websites';
+    }
     
     const titleMap: Record<string, string> = {
       'about': '#about',
