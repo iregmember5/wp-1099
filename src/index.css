@@ -1,0 +1,72 @@
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #3B82F6;
+  --color-secondary: #1E40AF;
+  --color-accent: #10B981;
+  --color-neutral: #64748B;
+  --color-background: #FFFFFF;
+  --color-text: #0F172A;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+@layer utilities {
+  .bg-theme-primary { background-color: var(--color-primary) !important; }
+  .bg-theme-secondary { background-color: var(--color-secondary) !important; }
+  .bg-theme-accent { background-color: var(--color-accent) !important; }
+  .bg-theme-neutral { background-color: var(--color-neutral) !important; }
+  .bg-theme-background { background-color: var(--color-background) !important; }
+  
+  .text-theme-primary { color: var(--color-primary) !important; }
+  .text-theme-secondary { color: var(--color-secondary) !important; }
+  .text-theme-accent { color: var(--color-accent) !important; }
+  .text-theme-neutral { color: var(--color-neutral) !important; }
+  .text-theme-text { color: var(--color-text) !important; }
+  
+  .border-theme-primary { border-color: var(--color-primary) !important; }
+  .border-theme-secondary { border-color: var(--color-secondary) !important; }
+  .border-theme-accent { border-color: var(--color-accent) !important; }
+  .border-theme-neutral { border-color: var(--color-neutral) !important; }
+  
+  .gradient-theme-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #6366F1 100%) !important;
+  }
+  
+  .gradient-theme-secondary {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%) !important;
+  }
+
+  .shadow-professional {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  }
+
+  .shadow-professional-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+  }
+
+  .shadow-professional-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+}
