@@ -454,23 +454,43 @@ function GlassNavbar({ data, onShowWebForm }: GlassNavbarProps) {
           {/* CTA Button */}
           <div className="flex items-center gap-4">
             {navbarCTA?.text ? (
-              <button
-                onClick={onShowWebForm}
-                className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-white font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden group gradient-theme-primary"
-              >
-                <span className="relative z-10">{navbarCTA.text}</span>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gradient-theme-secondary" />
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-              </button>
+              <>
+                <button
+                  onClick={onShowWebForm}
+                  className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-white font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden group gradient-theme-primary"
+                >
+                  <span className="relative z-10">{navbarCTA.text}</span>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gradient-theme-secondary" />
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                </button>
+                <button
+                  onClick={() => window.open('https://mypowerly.com/sign-in', '_blank')}
+                  className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-white font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden group gradient-theme-primary"
+                >
+                  <span className="relative z-10">Partner Login</span>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gradient-theme-secondary" />
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                </button>
+              </>
             ) : header_cta_primary ? (
-              <button
-                onClick={onShowWebForm}
-                className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-white font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden group gradient-theme-primary"
-              >
-                <span className="relative z-10">{header_cta_primary}</span>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gradient-theme-secondary" />
-                <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-              </button>
+              <>
+                <button
+                  onClick={onShowWebForm}
+                  className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-white font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden group gradient-theme-primary"
+                >
+                  <span className="relative z-10">{header_cta_primary}</span>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gradient-theme-secondary" />
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                </button>
+                <button
+                  onClick={() => window.open('https://mypowerly.com/sign-in', '_blank')}
+                  className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-white font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden group gradient-theme-primary"
+                >
+                  <span className="relative z-10">Partner Login</span>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gradient-theme-secondary" />
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+                </button>
+              </>
             ) : null}
 
             {/* Mobile Hamburger */}
@@ -598,31 +618,55 @@ function GlassNavbar({ data, onShowWebForm }: GlassNavbarProps) {
 
             {/* Mobile CTA */}
             {navbarCTA?.text ? (
-              <button
-                onClick={() => {
-                  if (onShowWebForm) {
-                    onShowWebForm();
+              <>
+                <button
+                  onClick={() => {
+                    if (onShowWebForm) {
+                      onShowWebForm();
+                      setOpen(false);
+                    }
+                  }}
+                  className="mt-2 w-full px-4 py-3 rounded-xl text-white font-semibold text-center shadow-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group gradient-theme-primary"
+                >
+                  <span className="relative z-10">{navbarCTA.text}</span>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gradient-theme-secondary" />
+                </button>
+                <button
+                  onClick={() => {
+                    window.open('https://mypowerly.com/sign-in', '_blank');
                     setOpen(false);
-                  }
-                }}
-                className="mt-2 w-full px-4 py-3 rounded-xl text-white font-semibold text-center shadow-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group gradient-theme-primary"
-              >
-                <span className="relative z-10">{navbarCTA.text}</span>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gradient-theme-secondary" />
-              </button>
+                  }}
+                  className="mt-2 w-full px-4 py-3 rounded-xl text-white font-semibold text-center shadow-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group gradient-theme-primary"
+                >
+                  <span className="relative z-10">Partner Login</span>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gradient-theme-secondary" />
+                </button>
+              </>
             ) : header_cta_primary ? (
-              <button
-                onClick={() => {
-                  if (onShowWebForm) {
-                    onShowWebForm();
+              <>
+                <button
+                  onClick={() => {
+                    if (onShowWebForm) {
+                      onShowWebForm();
+                      setOpen(false);
+                    }
+                  }}
+                  className="mt-2 w-full px-4 py-3 rounded-xl text-white font-semibold text-center shadow-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group gradient-theme-primary"
+                >
+                  <span className="relative z-10">{header_cta_primary}</span>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gradient-theme-secondary" />
+                </button>
+                <button
+                  onClick={() => {
+                    window.open('https://mypowerly.com/sign-in', '_blank');
                     setOpen(false);
-                  }
-                }}
-                className="mt-2 w-full px-4 py-3 rounded-xl text-white font-semibold text-center shadow-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group gradient-theme-primary"
-              >
-                <span className="relative z-10">{header_cta_primary}</span>
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gradient-theme-secondary" />
-              </button>
+                  }}
+                  className="mt-2 w-full px-4 py-3 rounded-xl text-white font-semibold text-center shadow-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group gradient-theme-primary"
+                >
+                  <span className="relative z-10">Partner Login</span>
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gradient-theme-secondary" />
+                </button>
+              </>
             ) : null}
           </div>
         </div>
