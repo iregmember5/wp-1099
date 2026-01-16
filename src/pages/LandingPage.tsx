@@ -17,6 +17,7 @@ import ProblemSolution from "../components/landingpage/ProblemSolution";
 import HowItWorks from "../components/landingpage/HowItWorks";
 import Pricing from "../components/landingpage/Pricing";
 import WidgetButton from "../components/WidgetButton";
+import WebForm from "../components/landingpage/WebForm";
 
 interface LandingPageProps {
   onShowLogin?: () => void;
@@ -606,6 +607,15 @@ const LandingPage: React.FC<LandingPageProps> = ({ onShowLogin }) => {
             : []),
         ]}
       />
+
+      {/* WebForm Modal */}
+      {data.web_form_section && (
+        <WebForm
+          isOpen={showWebForm}
+          onClose={() => setShowWebForm(false)}
+          data={data.web_form_section}
+        />
+      )}
     </div>
   );
 };
