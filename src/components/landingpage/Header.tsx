@@ -158,36 +158,21 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {header_cta_primary_url ? (
-                    <a
-                      href={header_cta_primary_url}
-                      className="group flex items-center justify-center px-8 py-4 text-base font-bold text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 gradient-theme-primary relative overflow-hidden"
-                    >
-                      <span className="relative z-10">
-                        {header_cta_primary}
-                      </span>
-                      <EasyIcon
-                        icon="FiArrowRight"
-                        size={20}
-                        color="#FFFFFF"
-                        className="ml-2 relative z-10 group-hover:translate-x-1 transition-transform"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                    </a>
-                  ) : (
-                    <button className="group flex items-center justify-center px-8 py-4 text-base font-bold text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 gradient-theme-primary relative overflow-hidden">
-                      <span className="relative z-10">
-                        {header_cta_primary}
-                      </span>
-                      <EasyIcon
-                        icon="FiArrowRight"
-                        size={20}
-                        color="#FFFFFF"
-                        className="ml-2 relative z-10 group-hover:translate-x-1 transition-transform"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                    </button>
-                  )}
+                  <button
+                    onClick={() => setShowWebForm(true)}
+                    className="group flex items-center justify-center px-8 py-4 text-base font-bold text-white rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 gradient-theme-primary relative overflow-hidden"
+                  >
+                    <span className="relative z-10">
+                      {header_cta_primary}
+                    </span>
+                    <EasyIcon
+                      icon="FiArrowRight"
+                      size={20}
+                      color="#FFFFFF"
+                      className="ml-2 relative z-10 group-hover:translate-x-1 transition-transform"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                  </button>
                 </motion.div>
               )}
 
@@ -196,34 +181,18 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {header_cta_secondary_url &&
-                  header_cta_secondary_url !== "#login" ? (
-                    <a
-                      href={header_cta_secondary_url}
-                      className="group flex items-center justify-center px-8 py-4 text-base font-bold text-slate-700 bg-white border-2 border-slate-300 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
-                    >
-                      <EasyIcon
-                        icon="FiPlay"
-                        size={20}
-                        color="currentColor"
-                        className="mr-2 group-hover:scale-110 transition-transform"
-                      />
-                      <span>{header_cta_secondary}</span>
-                    </a>
-                  ) : (
-                    <button
-                      onClick={() => setShowWebForm(true)}
-                      className="group flex items-center justify-center px-8 py-4 text-base font-bold text-slate-700 bg-white border-2 border-slate-300 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
-                    >
-                      <EasyIcon
-                        icon="FiPlay"
-                        size={20}
-                        color="currentColor"
-                        className="mr-2 group-hover:scale-110 transition-transform"
-                      />
-                      <span>{header_cta_secondary}</span>
-                    </button>
-                  )}
+                  <button
+                    onClick={() => setShowWebForm(true)}
+                    className="group flex items-center justify-center px-8 py-4 text-base font-bold text-slate-700 bg-white border-2 border-slate-300 hover:border-blue-500 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg"
+                  >
+                    <EasyIcon
+                      icon="FiPlay"
+                      size={20}
+                      color="currentColor"
+                      className="mr-2 group-hover:scale-110 transition-transform"
+                    />
+                    <span>{header_cta_secondary}</span>
+                  </button>
                 </motion.div>
               )}
             </motion.div>

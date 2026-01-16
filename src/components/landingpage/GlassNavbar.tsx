@@ -17,9 +17,10 @@ interface NavigationItem {
 interface GlassNavbarProps {
   data: LandingPageData;
   onShowLogin?: () => void;
+  onShowWebForm?: () => void;
 }
 
-function GlassNavbar({ data, onShowLogin }: GlassNavbarProps) {
+function GlassNavbar({ data, onShowLogin, onShowWebForm }: GlassNavbarProps) {
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -453,7 +454,7 @@ function GlassNavbar({ data, onShowLogin }: GlassNavbarProps) {
           <div className="flex items-center gap-4">
             {navbarCTA?.text ? (
               <button
-                onClick={onShowLogin}
+                onClick={onShowWebForm}
                 className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-white font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden group gradient-theme-primary"
               >
                 <span className="relative z-10">{navbarCTA.text}</span>
@@ -462,7 +463,7 @@ function GlassNavbar({ data, onShowLogin }: GlassNavbarProps) {
               </button>
             ) : header_cta_primary ? (
               <button
-                onClick={onShowLogin}
+                onClick={onShowWebForm}
                 className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-white font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden group gradient-theme-primary"
               >
                 <span className="relative z-10">{header_cta_primary}</span>
@@ -598,8 +599,8 @@ function GlassNavbar({ data, onShowLogin }: GlassNavbarProps) {
             {navbarCTA?.text ? (
               <button
                 onClick={() => {
-                  if (onShowLogin) {
-                    onShowLogin();
+                  if (onShowWebForm) {
+                    onShowWebForm();
                     setOpen(false);
                   }
                 }}
@@ -611,8 +612,8 @@ function GlassNavbar({ data, onShowLogin }: GlassNavbarProps) {
             ) : header_cta_primary ? (
               <button
                 onClick={() => {
-                  if (onShowLogin) {
-                    onShowLogin();
+                  if (onShowWebForm) {
+                    onShowWebForm();
                     setOpen(false);
                   }
                 }}
