@@ -20,7 +20,7 @@ interface GlassNavbarProps {
   onShowWebForm?: () => void;
 }
 
-function GlassNavbar({ data, onShowLogin, onShowWebForm }: GlassNavbarProps) {
+function GlassNavbar({ data, onShowWebForm }: GlassNavbarProps) {
   const [open, setOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -65,65 +65,68 @@ function GlassNavbar({ data, onShowLogin, onShowWebForm }: GlassNavbarProps) {
   // Intelligent page type to route mapping
   const getRouteFromPageType = (pageType: string, slug?: string): string => {
     const typeMap: Record<string, string> = {
-      'landing.AboutPage': slug ? `#about/${slug}` : '#about',
-      'landing.SalesPage': '#salespage',
-      'landing.ImageGalleryPage': '#gallery',
-      'landing.PricingPage': '#pricing',
-      'landing.ContactPage': '#contact',
-      'landing.TestimonialsPage': '#testimonials',
-      'landing.FeaturesPage': '#features',
-      'landing.FAQPage': '#faq',
-      'landing.TeamPage': '#team',
-      'landing.BlogPage': '#blog',
-      'landing.PortfolioPage': '#portfolio',
-      'landing.ServicesPage': '#services',
+      "landing.AboutPage": slug ? `#about/${slug}` : "#about",
+      "landing.SalesPage": "#salespage",
+      "landing.ImageGalleryPage": "#gallery",
+      "landing.PricingPage": "#pricing",
+      "landing.ContactPage": "#contact",
+      "landing.TestimonialsPage": "#testimonials",
+      "landing.FeaturesPage": "#features",
+      "landing.FAQPage": "#faq",
+      "landing.TeamPage": "#team",
+      "landing.BlogPage": "#blog",
+      "landing.PortfolioPage": "#portfolio",
+      "landing.ServicesPage": "#services",
     };
-    return typeMap[pageType] || '#';
+    return typeMap[pageType] || "#";
   };
 
   // Intelligent title to route mapping
   const getRouteFromTitle = (title: string): string => {
     const lower = title.toLowerCase();
-    
+
     // Exact phrase matching first
-    if (lower.includes('why our website builder') || lower.includes('why website builder')) {
-      return '#about/why-our-website-builder';
+    if (
+      lower.includes("why our website builder") ||
+      lower.includes("why website builder")
+    ) {
+      return "#about/why-our-website-builder";
     }
-    if (lower.includes('demo website') || lower.includes('demo-website')) {
-      return '#demo-websites';
+    if (lower.includes("demo website") || lower.includes("demo-website")) {
+      return "#demo-websites";
     }
-    
+
     const titleMap: Record<string, string> = {
-      'about': '#about',
-      'sales': '#salespage',
-      'partner': '#salespage',
-      'become': '#salespage',
-      'pricing': '#pricing',
-      'contact': '#contact',
-      'testimonial': '#testimonials',
-      'review': '#testimonials',
-      'feature': '#features',
-      'faq': '#faq',
-      'question': '#faq',
-      'team': '#team',
-      'blog': '#blog',
-      'portfolio': '#portfolio',
-      'gallery': '#gallery',
-      'template': '#gallery',
-      'service': '#services',
-      'affiliate': '#affiliate',
+      about: "#about",
+      sales: "#salespage",
+      partner: "#salespage",
+      become: "#salespage",
+      pricing: "#pricing",
+      contact: "#contact",
+      testimonial: "#testimonials",
+      review: "#testimonials",
+      feature: "#features",
+      faq: "#faq",
+      question: "#faq",
+      team: "#team",
+      blog: "#blog",
+      portfolio: "#portfolio",
+      gallery: "#gallery",
+      template: "#gallery",
+      service: "#services",
+      affiliate: "#affiliate",
     };
-    
+
     for (const [key, route] of Object.entries(titleMap)) {
       if (lower.includes(key)) return route;
     }
-    return '#';
+    return "#";
   };
 
   const processedLinks: NavigationItem[] = rawNavigationItems.map(
     (item: any) => {
       let url = item.url || "#";
-      
+
       // Priority 1: Use page meta type if available
       if (item.link_type === "page" && item.page?.meta?.type) {
         url = getRouteFromPageType(item.page.meta.type, item.page.meta.slug);
@@ -132,7 +135,7 @@ function GlassNavbar({ data, onShowLogin, onShowWebForm }: GlassNavbarProps) {
       else if (!url || url === "#") {
         url = getRouteFromTitle(item.title);
       }
-      
+
       return {
         ...item,
         link_type: (item.link_type as "page" | "url" | "dropdown") || "url",
@@ -208,8 +211,6 @@ function GlassNavbar({ data, onShowLogin, onShowWebForm }: GlassNavbarProps) {
   const navbarStyle = headerConfig?.navbar_style || "default";
   const stickyNavbar = headerConfig?.sticky_navbar !== false;
   const transparentOnHome = headerConfig?.transparent_on_home || false;
-
-
 
   function isFeatureDropdown(item: NavigationItem): boolean {
     return (
@@ -434,7 +435,7 @@ function GlassNavbar({ data, onShowLogin, onShowWebForm }: GlassNavbarProps) {
                         href={link.url || "#"}
                         onClick={(e) => {
                           const url = link.url || "#";
-                          if (url.startsWith('#')) {
+                          if (url.startsWith("#")) {
                             e.preventDefault();
                             window.location.hash = url.substring(1);
                           }
@@ -581,7 +582,7 @@ function GlassNavbar({ data, onShowLogin, onShowWebForm }: GlassNavbarProps) {
                       href={link.url || "#"}
                       onClick={(e) => {
                         const url = link.url || "#";
-                        if (url.startsWith('#')) {
+                        if (url.startsWith("#")) {
                           e.preventDefault();
                           window.location.hash = url.substring(1);
                         }
