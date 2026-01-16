@@ -27,6 +27,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onShowLogin }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [_, setThemeColors] = useState<any>(null);
+  const [showWebForm, setShowWebForm] = useState(false);
 
   const { setTheme } = useTheme();
 
@@ -485,7 +486,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onShowLogin }) => {
       )}
 
       {/* Navbar Section - Always at top */}
-      <GlassNavbar data={data} onShowLogin={onShowLogin} />
+      <GlassNavbar data={data} onShowLogin={onShowLogin} onShowWebForm={() => setShowWebForm(true)} />
 
       {/* ===== DYNAMIC SECTION RENDERING ===== */}
       {data.section_order && data.section_order.length > 0 ? (

@@ -51,9 +51,7 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
     header_subtitle,
     header_description,
     header_cta_primary,
-    header_cta_primary_url,
     header_cta_secondary,
-    header_cta_secondary_url,
     header_section_image,
   } = data;
 
