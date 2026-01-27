@@ -34,7 +34,7 @@ export const SiteSettingsProvider: React.FC<SiteSettingsProviderProps> = ({
     const fetchSiteSettings = async () => {
       try {
         const response = await fetch(
-          getApiUrl(API_CONFIG.ENDPOINTS.SITE_SETTINGS)
+          getApiUrl(API_CONFIG.ENDPOINTS.SITE_SETTINGS),
         );
         if (!response.ok) {
           throw new Error("Failed to fetch site settings");
@@ -44,7 +44,7 @@ export const SiteSettingsProvider: React.FC<SiteSettingsProviderProps> = ({
         // Transform API response to our internal format
         const transformedSettings: SiteSettings = {
           siteTitle: data.site_title || "notary-app",
-          favicon: data.favicon?.url ? getApiUrl(data.favicon.url) : "/vite.svg",
+          favicon: data.favicon?.url ? getApiUrl(data.favicon.url) : "/vte.svg",
           widgets: data.widgets || [],
         };
 
