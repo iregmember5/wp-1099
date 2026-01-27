@@ -44,7 +44,7 @@ export const SiteSettingsProvider: React.FC<SiteSettingsProviderProps> = ({
         // Transform API response to our internal format
         const transformedSettings: SiteSettings = {
           siteTitle: data.site_title || "notary-app",
-          favicon: data.favicon?.url || "/vite.svg",
+          favicon: data.favicon?.url ? getApiUrl(data.favicon.url) : "/vite.svg",
           widgets: data.widgets || [],
         };
 

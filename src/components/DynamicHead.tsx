@@ -15,7 +15,7 @@ export const DynamicHead: React.FC = () => {
       } else {
         const newFavicon = document.createElement('link');
         newFavicon.rel = 'icon';
-        newFavicon.type = 'image/svg+xml';
+        newFavicon.type = 'image/png';
         newFavicon.href = settings.favicon;
         document.head.appendChild(newFavicon);
       }

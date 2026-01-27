@@ -48,6 +48,20 @@ const LandingPage: React.FC<LandingPageProps> = ({ onShowLogin }) => {
           document.title = pageData.meta_title || pageData.title;
         }
 
+        if (pageData.favicon?.url) {
+          const faviconUrl = `https://esign-admin.signmary.com${pageData.favicon.url}`;
+          let favicon = document.querySelector('link[rel="icon"]') as HTMLLinkElement;
+          if (favicon) {
+            favicon.href = faviconUrl;
+          } else {
+            favicon = document.createElement('link');
+            favicon.rel = 'icon';
+            favicon.type = 'image/png';
+            favicon.href = faviconUrl;
+            document.head.appendChild(favicon);
+          }
+        }
+
         const metaDescription = document.querySelector('meta[name="description"]');
         if (metaDescription && (pageData.meta_description || pageData.header_description)) {
           metaDescription.setAttribute("content", pageData.meta_description || pageData.header_description || "");

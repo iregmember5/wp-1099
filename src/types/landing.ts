@@ -293,6 +293,7 @@ export interface LandingPageData {
   meta_title?: string;
   meta_description?: string;
   og_image?: ImageData;
+  favicon?: ImageData;
   color_theme?: ColorTheme;
   video_section?: {
     heading: string;
