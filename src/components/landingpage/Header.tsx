@@ -77,6 +77,8 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
     <header
       ref={ref}
       className="relative pt-20 md:pt-24 lg:pt-20 flex items-center justify-center overflow-hidden pb-12 md:pb-20 min-h-[80vh] md:min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30"
+      itemScope
+      itemType="https://schema.org/WPHeader"
     >
       {/* Professional Background Pattern */}
       <div className="absolute inset-0 overflow-hidden">
@@ -129,6 +131,7 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
                   <motion.h1
                     className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-slate-900 leading-[1.1] tracking-tight"
                     variants={itemVariants}
+                    itemProp="headline"
                   >
                     {header_title}
                   </motion.h1>
@@ -139,6 +142,7 @@ const Header: React.FC<HeaderProps> = ({ data }) => {
                   <motion.p
                     className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto md:mx-0 font-medium"
                     variants={itemVariants}
+                    itemProp="description"
                   >
                     {header_description}
                   </motion.p>

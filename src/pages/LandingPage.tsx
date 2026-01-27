@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import type { LandingPageData } from "../types/landing";
 import { fetchLandingPageData } from "../types/landing";
 import { useTheme } from "../contexts/ThemeContext";
+import { SEO } from "../components/SEO";
 import DynamicContentRenderer from "../components/landingpage/DynamicContent";
 import GlassNavbar from "../components/landingpage/GlassNavbar";
 import Header from "../components/landingpage/Header";
@@ -251,6 +252,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ onShowLogin }) => {
 
   return (
     <div className="landing-page relative overflow-hidden">
+      {/* SEO Component */}
+      <SEO data={data} />
+      
       {/* Inauguration Curtains */}
 
       {/* Animated Background Particles */}
