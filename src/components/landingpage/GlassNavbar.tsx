@@ -464,7 +464,7 @@ function GlassNavbar({ data, onShowWebForm }: GlassNavbarProps) {
                   <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                 </button>
                 <button
-                  onClick={() => window.open('https://mypowerly.com/sign-in', '_blank')}
+                  onClick={() => window.open('http://localhost:5173/sign-in?source=1099-partner', '_blank')}
                   className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-white font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden group gradient-theme-primary"
                 >
                   <span className="relative z-10">Partner Login</span>
@@ -483,7 +483,7 @@ function GlassNavbar({ data, onShowWebForm }: GlassNavbarProps) {
                   <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
                 </button>
                 <button
-                  onClick={() => window.open('https://mypowerly.com/sign-in', '_blank')}
+                  onClick={() => window.open('http://localhost:5173/sign-in?source=1099-partner', '_blank')}
                   className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-white font-semibold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden group gradient-theme-primary"
                 >
                   <span className="relative z-10">Partner Login</span>
