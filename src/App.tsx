@@ -3,7 +3,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { SiteSettingsProvider } from "./contexts/SiteSettingsContext";
 import { DynamicHead } from "./components/DynamicHead";
 
-// Lazy load all pages
+// Lazy load all page
 const LandingPage = lazy(() => import("./pages/LandingPage"));
 const FeaturesPage = lazy(() =>
   import("./components/features/features-page/FeaturesPage").then((m) => ({
